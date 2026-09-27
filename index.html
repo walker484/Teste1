@@ -48,8 +48,6 @@
 
 <main>
 
-<!-- ================= HERO ================= -->
-
 <section class="hero">
 
   <div class="hero-content">
@@ -96,8 +94,6 @@
 
   </div>
 
-
-  <!-- ================= DASHBOARD ================= -->
 
   <div class="dashboard">
 
@@ -173,8 +169,6 @@
     </div>
 
 
-    <!-- INPUT -->
-
     <input
       type="file"
       id="fileInput"
@@ -183,22 +177,16 @@
     >
 
 
-    <!-- STATUS -->
-
     <div
       id="uploadStatus"
       class="upload-status"
     ></div>
 
 
-    <!-- ================= ARQUIVOS ================= -->
-
     <div
       class="media-grid"
       id="mediaGrid"
     >
-
-      <!-- FOTO INICIAL -->
 
       <div class="media-card">
 
@@ -237,8 +225,6 @@
       </div>
 
 
-      <!-- FOTO 2 -->
-
       <div class="media-card">
 
         <div class="media-image">
@@ -275,50 +261,8 @@
 
       </div>
 
-
-      <!-- FOTO 3 -->
-
-      <div class="media-card">
-
-        <div class="media-image">
-
-          <img
-            src="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=700&q=80"
-            alt="Arquitetura"
-          >
-
-        </div>
-
-        <div class="media-info">
-
-          <strong>
-            arquitetura.jpg
-          </strong>
-
-          <span>
-            JPG · Imagem
-          </span>
-
-          <div class="media-url">
-            walker/m/arquitetura.jpg
-          </div>
-
-          <button
-            class="copy"
-            data-url="https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=700&q=80"
-          >
-            Copiar URL
-          </button>
-
-        </div>
-
-      </div>
-
-
     </div>
 
-
-    <!-- ================= UPLOAD BOX ================= -->
 
     <div
       class="upload-box"
@@ -344,8 +288,6 @@
 </section>
 
 
-<!-- ================= NÚMEROS ================= -->
-
 <section class="numbers">
 
   <div>
@@ -370,8 +312,6 @@
 
 </section>
 
-
-<!-- ================= PLATAFORMA ================= -->
 
 <section id="plataforma" class="section">
 
@@ -465,8 +405,6 @@
 </section>
 
 
-<!-- ================= RECURSOS ================= -->
-
 <section id="recursos" class="gallery-section">
 
   <div class="section-heading">
@@ -544,8 +482,6 @@
 
 </section>
 
-
-<!-- ================= SOLUÇÕES ================= -->
 
 <section id="solucoes" class="solutions">
 
@@ -632,8 +568,6 @@
 </section>
 
 
-<!-- ================= DESENVOLVEDORES ================= -->
-
 <section id="docs" class="developer-section">
 
   <div>
@@ -687,8 +621,6 @@ upload(imagem);
 </section>
 
 
-<!-- ================= WALKER STORAGE ================= -->
-
 <section class="future">
 
   <div class="future-content">
@@ -720,8 +652,6 @@ upload(imagem);
 </section>
 
 
-<!-- ================= CTA ================= -->
-
 <section id="precos" class="cta">
 
   <div>
@@ -749,8 +679,6 @@ upload(imagem);
 
 </main>
 
-
-<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -850,8 +778,6 @@ upload(imagem);
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
-
 <script>
 
 const CLOUD_NAME = "mb1eetro";
@@ -874,16 +800,10 @@ const uploadStatus =
   document.getElementById("uploadStatus");
 
 
-/* =========================
-   ABRIR UPLOAD
-========================= */
-
 uploadButton.addEventListener(
   "click",
   function() {
-
     fileInput.click();
-
   }
 );
 
@@ -891,16 +811,10 @@ uploadButton.addEventListener(
 uploadBox.addEventListener(
   "click",
   function() {
-
     fileInput.click();
-
   }
 );
 
-
-/* =========================
-   ARQUIVO ESCOLHIDO
-========================= */
 
 fileInput.addEventListener(
   "change",
@@ -918,10 +832,6 @@ fileInput.addEventListener(
   }
 );
 
-
-/* =========================
-   ENVIAR CLOUDINARY
-========================= */
 
 async function enviarArquivo(arquivo) {
 
@@ -979,10 +889,6 @@ async function enviarArquivo(arquivo) {
       data.secure_url;
 
 
-    /* =====================
-       OTIMIZA IMAGEM
-    ===================== */
-
     if (
       arquivo.type.startsWith("image/")
     ) {
@@ -1022,10 +928,6 @@ async function enviarArquivo(arquivo) {
 
 }
 
-
-/* =========================
-   CRIAR CARD
-========================= */
 
 function adicionarMidia(
   url,
@@ -1158,27 +1060,30 @@ function adicionarMidia(
 
 
   info.appendChild(titulo);
-
   info.appendChild(tipoArquivo);
-
   info.appendChild(urlBox);
-
   info.appendChild(copiar);
 
-
   card.appendChild(imagem);
-
   card.appendChild(info);
-
 
   mediaGrid.prepend(card);
 
+
+  /* =================================
+     TESTE: MANTER SOMENTE 2 MÍDIAS
+  ================================= */
+
+  while (
+    mediaGrid.children.length > 2
+  ) {
+
+    mediaGrid.lastElementChild.remove();
+
+  }
+
 }
 
-
-/* =========================
-   COPIAR FOTOS EXISTENTES
-========================= */
 
 document
   .querySelectorAll(".copy")
@@ -1230,10 +1135,6 @@ document
     }
   );
 
-
-/* =========================
-   COMEÇAR
-========================= */
 
 document
   .getElementById("startButton")
